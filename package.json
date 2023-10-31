@@ -8,12 +8,18 @@
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watchAll",
+    "docker:up": "docker compose -f infra/compose.yaml up -d",
+    "docker:stop": "docker compose -f infra/compose.yaml stop",
+    "docker:down": "docker compose -f infra/compose.yaml down",
+    "docker:list": "docker ps",
+    "docker:psql": "psql --host=localhost --username=postgres --port=5432"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "next": "^13.1.6",
+    "pg": "^8.11.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
