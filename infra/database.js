@@ -14,6 +14,11 @@ async function query(queryObject) {
   return result;
 }
 
+function teste() {
+  return "ok";
+}
+
 export default {
+  teste: teste,
   query: query,
 };
