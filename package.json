@@ -4,7 +4,7 @@
   "description": "Um simples projeto para treino de programação.",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run services:up && npm run services:wait:database && npm run migration:up & next dev",
+    "dev": "npm run services:up && npm run services:wait:database && npm run migrations:up & next dev",
     "lint:prettier:check": "prettier --check .",
     "lint:prettier:fix": "prettier --write .",
     "lint:eslint:check": "next lint --dir .",
@@ -17,8 +17,8 @@
     "services:list-all": "docker ps --all",
     "services:psql": "psql --host=localhost --username=postgres --port=5432",
     "services:wait:database": "node infra/scripts/wait-for-postgres.js",
-    "migration:create": "node-pg-migrate -m infra/migrations create",
-    "migration:up": "node-pg-migrate -m infra/migrations --envPath .env.development up",
+    "migrations:create": "node-pg-migrate -m infra/migrations create",
+    "migrations:up": "node-pg-migrate -m infra/migrations --envPath .env.development up",
     "prepare": "husky",
     "commit": "cz"
   },
