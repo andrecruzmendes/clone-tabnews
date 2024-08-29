@@ -4,7 +4,7 @@
   "description": "Um simples projeto para treino de programação.",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run services:up && npm run services:wait:database && npm run migrations:up && next dev ; ",
+    "dev": "npm run services:up && npm run services:wait:database && npm run migrations:up && (trap 'npm run services:stop' INT TERM ; next dev)",
     "test": "npm run services:up && concurrently --n next,jest --hide next -k -s command-jest \"next dev\" \"NODE_ENV=development jest --runInBand\"",
     "posttest": "npm run services:stop",
     "test:watch": "NODE_ENV=development jest --watchAll --runInBand",
